@@ -6,6 +6,7 @@
         <delete dir="anttarget" quiet="true" />
     </target>
 
+
     <target name="compile">
         <mkdir dir="anttarget/classes"/>
         <javac srcdir="src/main" destdir="anttarget/classes" debug="yes"/>
