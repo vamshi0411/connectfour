@@ -3,12 +3,12 @@
 	</target>
 
     <target name="clean">
-        <delete dir="target" quiet="true" />
+        <delete dir="anttarget" quiet="true" />
     </target>
 
     <target name="compile">
-        <mkdir dir="target/classes"/>
-        <javac srcdir="src" destdir="target/classes" debug="yes"/>
+        <mkdir dir="anttarget/classes"/>
+        <javac srcdir="src/main" destdir="anttarget/classes" debug="yes"/>
     </target>
 
     <target name="sleep">
@@ -17,31 +17,31 @@
     </target>
 
     <target name="test" depends="compile">
-        <mkdir dir="target/test-classes"/>
-        <javac srcdir="test" destdir="target/test-classes" debug="yes">
+        <mkdir dir="anttarget/test-classes"/>
+        <javac srcdir="src/test" destdir="anttarget/test-classes" debug="yes">
             <classpath>
-                <pathelement location="target/classes"/>
+                <pathelement location="anttarget/classes"/>
                 <pathelement location="lib/junit.jar"/>
             </classpath>
         </javac>
 
-        <mkdir dir="target/test-results"/>
+        <mkdir dir="anttarget/test-results"/>
         <junit fork="yes" haltonfailure="no" printsummary="yes">
             <classpath >
-                <pathelement location="target/classes"/>
+                <pathelement location="anttarget/classes"/>
                 <pathelement location="lib/junit.jar"/>
-                <pathelement location="target/test-classes"/>
+                <pathelement location="anttarget/test-classes"/>
             </classpath>
             <formatter type="brief" usefile="false"/>
             <formatter type="xml" />
-            <batchtest todir="target/test-results" >
-                <fileset dir="target/test-classes" includes="**/*Test.class"/>
+            <batchtest todir="anttarget/test-results" >
+                <fileset dir="anttarget/test-classes" includes="**/*Test.class"/>
             </batchtest>
         </junit>
     </target>
 
     <target name="jar" depends="compile">
-        <jar jarfile="target/connectfour.jar" basedir="target/classes"/>
+        <jar jarfile="anttarget/connectfour.jar" basedir="anttarget/classes"/>
     </target>
 
 </project>
