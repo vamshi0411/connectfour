@@ -26,7 +26,7 @@
         </javac>
 
         <mkdir dir="anttarget/test-results"/>
-        <junit fork="yes" haltonfailure="no" printsummary="yes">
+        <junit fork="yes" haltonfailure="yes" printsummary="yes">
             <classpath >
                 <pathelement location="anttarget/classes"/>
                 <pathelement location="lib/junit.jar"/>
