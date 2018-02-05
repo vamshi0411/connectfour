@@ -19,7 +19,7 @@ public class PlayingStandTest extends TestCase {
         assertFalse(stand.areFourConnected());
 
         stand.dropRed(0);
-        assertTrue(stand.areFourConnected());
+        assertTrue(stand.areFourConnected());  //this test fails, as for loop is wrong in source code.
 
         try {
             stand.dropBlack(6);
@@ -31,7 +31,7 @@ public class PlayingStandTest extends TestCase {
     public void testFourConnectedHorizontally() throws GameOverException {
         PlayingStand stand = new PlayingStand();
         createRedWinsHorizontally(stand);
-        assertTrue(stand.areFourConnected());
+        assertTrue(stand.areFourConnected());   //this test fails, as for loop is wrong in source code.
 
         try {
             stand.dropBlack(6);
@@ -61,7 +61,7 @@ public class PlayingStandTest extends TestCase {
     public void testFourConnectedDiagonally() throws GameOverException {
         PlayingStand stand = new PlayingStand();
         createRedWinsDiagonallyUpward(stand);
-        assertTrue(stand.areFourConnected());
+        assertTrue(stand.areFourConnected());    //this test fails, as for loop is wrong in source code.
 
         try {
             stand.dropBlack(6);
@@ -193,7 +193,7 @@ public class PlayingStandTest extends TestCase {
         stand.dropBlack(0);
         stand.dropRed(0);
 
-        assertTrue(stand.areFourConnected());
+        assertTrue(stand.areFourConnected());  //this test fails, as for loop is wrong in source code.
         assertTrue(stand.isGameOver());
     }
 
